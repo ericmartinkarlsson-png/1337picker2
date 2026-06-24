@@ -103,9 +103,8 @@ export default function App() {
     const extraRounds = 4 + Math.floor(Math.random() * 3);
     const baseSpins = extraRounds * 360;
     
-    // Calculate target counter-clockwise angle relative to top pointer (270 degrees)
-    const angleOffset = (midAngle - 270 + 360) % 360;
-    const target = baseSpins + angleOffset;
+    // Calculate target counter-clockwise angle relative to top pointer (0 degrees in polarToCartesian)
+    const angleOffset = midAngle;
     
     // Compute forward-only accumulative target rotation
     const currentRotationBase = Math.floor(targetRotation / 360) * 360;
@@ -113,7 +112,7 @@ export default function App() {
     
     setTargetRotation(finalTarget);
     
-    // Lock for 4 seconds (transition duration)
+    // Lock for 4 seconds (transition duration) + 150ms settle buffer
     setTimeout(() => {
       setIsSpinning(false);
       setWinner(selectedSegment.name);
@@ -135,7 +134,7 @@ export default function App() {
       const updatedHistory = [newResult, ...history];
       setHistory(updatedHistory);
       localStorage.setItem('vem_bestammer_history', JSON.stringify(updatedHistory));
-    }, 4000);
+    }, 4150);
   };
 
   const handleClearHistory = () => {

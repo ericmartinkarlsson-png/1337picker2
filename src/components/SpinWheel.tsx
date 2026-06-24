@@ -114,12 +114,11 @@ export default function SpinWheel({
         <svg
           ref={wheelRef}
           viewBox="0 0 500 500"
-          className="w-[440px] h-[440px] z-10 transition-transform select-none"
+          className="w-[440px] h-[440px] z-10 select-none"
           style={{
             transform: `rotate(${-currentRotation}deg)`,
-            transition: isSpinning
-              ? 'transform 4000ms cubic-bezier(0.12, 0.8, 0.15, 1)'
-              : 'none',
+            transformOrigin: 'center',
+            transition: 'transform 4000ms cubic-bezier(0.12, 0.8, 0.15, 1)',
           }}
         >
           <defs>
