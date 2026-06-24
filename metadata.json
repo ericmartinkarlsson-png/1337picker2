@@ -1,0 +1,6 @@
+{
+  "name": "Vem Bestämmer?",
+  "description": "Ett lyckohjul för att avgöra om Eric, Oliver eller Elin får bestämma. Eric och Oliver har 6 platser var, och Elin har en bonusplats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
